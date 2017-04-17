@@ -10,6 +10,7 @@ function onClickHandler(info, tab) {
         var resp = JSON.parse(xhr.responseText);
 
         var usdRate = resp.bpi.USD.rate;
+        usdRate = String.replace( /,/g, "" );   // Strip commas from monetary amount
         var usdValue = btc * usdRate;
 
         alert(btc + " BTC is $" + usdValue.toFixed(2) + ".");
